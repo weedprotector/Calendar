@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="control">
+                <div class="control_btns">
+                    <button class="control_btn">Добавить</button>
+                    <button class="control_btn">Обновить</button>
+                </div>
+
+                <div class="control_area">
+                    <img src="icons/loupe.png" alt="" class="control_img">
+                    <input type="text" placeholder="Введите дату/событие" class="control_input">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="bottom_row">
+                <button class="bottom_row_btn prev" id="prev">
+                    <img src="icons/prev.png" alt="">
+                </button>
+                <div class="bottom_row_date">Ноябрь 2021</div>
+                <button class="bottom_row_btn next" id="next">
+                    <img src="icons/next.png" alt="">
+                </button>
+                <button class="extra_btn">Сегодня</button>
+            </div>
+
+            <div class="table">
+                
+            </div>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
