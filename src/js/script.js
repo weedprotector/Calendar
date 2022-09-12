@@ -7,6 +7,7 @@ let currYear = now.getFullYear();
 const monthAndYear = document.querySelector(".bottom_row_date");
 const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
+const today = document.querySelector(".extra_btn");
 const Months = [
     "Январь",
     "Февраль",
@@ -44,15 +45,26 @@ prev.addEventListener('click', () => {
 next.addEventListener('click', () => {
     currYear = (currMonth === 11) ? currYear + 1 : currYear
     currMonth = (currMonth === 11) ? 0 : currMonth + 1
-    console.log('Нажато некст')
     renderCalendar(currYear, currMonth)
 })
 
+today.addEventListener('click', () => {
+    currYear = now.getFullYear();
+    currMonth = now.getMonth();
+    renderCalendar(currYear, currMonth)
+
+})
+
 function renderCalendar(year, month) {
-    let startOfMonth = new Date(year, month).getDay();
+    //С какого дня начинается месяц, где 0 - воскресенье
+    let firstDayOfMonth = new Date(year, month).getDay();
+    // Общее количество дней в текущем месяце
     let numOfDays = 32 - new Date(year, month).getDate();
     let renderNum = 1
+
+    //День недели словами с 0, где 0 - воскресенье
     let renderDay = 0
+
     // Для подсчета столбцов в ряду, чтобы заполнять последнюю строку пустыми дивами
     let numOfColoumns = 0
     let table = document.querySelector(".table")
@@ -62,7 +74,7 @@ function renderCalendar(year, month) {
         let row = document.createElement("div")
         row.classList.add("row")
         for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < startOfMonth - 1) {
+            if (i === 0 && j < firstDayOfMonth - 1 || i === 0 && firstDayOfMonth === 0 && j < 6) {
                 let cell = document.createElement("div")
                 cell.classList.add("empty")
                 cell.textContent = `${Days[renderDay]}`
